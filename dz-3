@@ -1,0 +1,46 @@
+class NameSurname:
+    def __init__ (self, name, surname):
+        self.name = name
+        self.surname = surname
+
+class Student:
+    student_amount = 0
+    def __init__ (self,name, surname , age, height, nameschool, town, GPA ):
+        self.ns = NameSurname(name, surname)
+        self.age = age
+        self.height = height
+        self.nameschool = nameschool
+        self.town = town
+        self.GPA = GPA
+        Student.student_amount += 1
+
+    def printStudent(self):
+        print(f'Name: {self.ns.name}')
+        print(f'Surname: {self.ns.surname}')
+        print(f'Age: {self.age}')
+        print(f'Height: {self.height}')
+        if self.nameschool is None: print('False')
+        else: print(f'nameschool: {self.nameschool}')
+        print(f'town: {self.town}')
+        if self.GPA == 12:
+            print('GPA = Perfectly')
+        elif self.GPA >= 10:
+            print('GPA = Good')
+        elif self.GPA >= 7:
+            print('GPA = Ok')
+        elif self.GPA >= 4:
+            print('GPA = Bad')
+        elif self.GPA >= 1:
+            print('GPA = Very bad')
+
+    def Birthday(self):
+        self.age += 1
+        print(f'Happy Birthday to {self.ns.name}. Now you {self.age}!')
+
+
+
+print(f'before creating Student object {Student.student_amount}')
+first_student = Student("vlad", "karlinskij", 12, 160, "Veda", "Odessa", 5)
+first_student.printStudent()
+print(f'after creating Student object {Student.student_amount}')
+first_student.Birthday()
